@@ -12,6 +12,7 @@ package com.example.demo.entity;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -29,8 +30,10 @@ public class UserEntity {
     private Long id;
     private  String userName;
     private String  passWord ;
-    private String  user_sex;
-    private  String nick_name;
+    @TableField("user_sex")
+    private String  userSex;
+    @TableField("nick_name")
+    private  String nickName;
 
     public Long getId() {
         return this.id;
@@ -45,11 +48,11 @@ public class UserEntity {
     }
 
     public String getUser_sex() {
-        return this.user_sex;
+        return this.userSex;
     }
 
     public String getNick_name() {
-        return this.nick_name;
+        return this.nickName;
     }
 
     public void setId(Long id) {
@@ -65,11 +68,11 @@ public class UserEntity {
     }
 
     public void setUser_sex(String user_sex) {
-        this.user_sex = user_sex;
+        this.userSex = user_sex;
     }
 
     public void setNick_name(String nick_name) {
-        this.nick_name = nick_name;
+        this.userName = nick_name;
     }
 
 }
