@@ -11,6 +11,10 @@
 package com.example.demo.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 /**
  * 〈一句话功能简述 
  * 〈user表实体〉
@@ -19,7 +23,9 @@ package com.example.demo.entity;
  * @create 2020/4/7 9:43
  * @since 1.0.0
  */
+@TableName(value = "users")//指定表名
 public class UserEntity {
+    @TableId(value = "id",type = IdType.AUTO)
     private Long id;
     private  String userName;
     private String  passWord ;
