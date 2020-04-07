@@ -11,7 +11,10 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.UserEntity;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,11 +30,30 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
+//    @Lazy
     private UserMapper userMapper;
 
     public List<UserEntity> getAll(){
         List<UserEntity> users = userMapper.getAll();
         System.out.println(users.toString());
         return  users;
+    }
+
+    public  UserEntity getOne(Long id){
+        UserEntity entity = userMapper.getOne(id);
+        return  entity;
+    }
+
+    public void insert(UserEntity user){
+        userMapper.insert(user);
+    }
+
+
+    public void update(UserEntity user){
+        userMapper.update(user);
+    }
+
+    public void delete(Long id){
+        userMapper.delete(id);
     }
 }

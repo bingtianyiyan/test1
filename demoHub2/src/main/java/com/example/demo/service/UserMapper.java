@@ -12,9 +12,8 @@ package com.example.demo.service;
 
 import com.example.demo.entity.UserEntity;
 import com.example.demo.entity.UserSexEnum;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -26,6 +25,7 @@ import java.util.List;
  * @create 2020/4/7 9:39
  * @since 1.0.0
  */
+@Service
 public interface UserMapper {
 
 
@@ -35,4 +35,20 @@ public interface UserMapper {
 //            @Result(property = "nickName", column = "nick_name")
 //    })
     List<UserEntity> getAll();
+
+    @Select("SELECT * FROM users WHERE id = #{id}")
+//    @Results({
+//            @Result(property = "userSex",  column = "user_sex", javaType = UserSexEnum.class),
+//            @Result(property = "nickName", column = "nick_name")
+//    })
+    UserEntity getOne(Long id);
+
+    @Insert("INSERT INTO users(userName,passWord,user_sex) VALUES(#{userName}, #{passWord}, #{user_sex})")
+    void insert(UserEntity user);
+
+    @Update("UPDATE users SET userName=#{userName},nick_name=#{nick_name} WHERE id =#{id}")
+    void update(UserEntity user);
+
+    @Delete("DELETE FROM users WHERE id =#{id}")
+    void delete(Long id);
 }

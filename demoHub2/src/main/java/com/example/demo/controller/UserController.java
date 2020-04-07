@@ -10,6 +10,7 @@
  */
 package com.example.demo.controller;
 
+import com.example.demo.domain.dto.getUserOneInput;
 import com.example.demo.domain.vo.GreetingVo;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
@@ -28,15 +29,45 @@ import java.util.List;
  * @since 1.0.0
  */
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired
     UserService _userService;
 
-    @RequestMapping(value = "/getUserAllList", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/getUserAllList", method = RequestMethod.GET)
     @ResponseBody
     public Result<List<UserEntity>> getUserAllList(){
         List<UserEntity> list = _userService.getAll();
         return  Result.ofSuccess(list);
+    }
+
+    @RequestMapping(value = "/api/getUserOne",method = RequestMethod.GET)
+    @ResponseBody
+    public  Result<UserEntity> getOne(@ModelAttribute getUserOneInput input){
+        System.out.println(input.getId());
+        UserEntity entity = _userService.getOne(input.getId());
+        return  Result.ofSuccess(entity);
+    }
+
+    @RequestMapping(value = "api/insertUser",method = RequestMethod.POST)
+    @ResponseBody
+    public  Result<String> insertUser(@RequestBody UserEntity input){
+        _userService.insert(input);
+        return Result.ofSuccess("成功");
+    }
+
+    @RequestMapping(value = "api/updateUser",method = RequestMethod.POST)
+    @ResponseBody
+    public  Result<String> updateUser(@RequestBody  UserEntity input){
+        _userService.update(input);
+        return Result.ofSuccess("成功");
+    }
+
+    @RequestMapping(value = "api/deleteUser",method = RequestMethod.DELETE)
+    @ResponseBody
+    public  Result<String> deleteUser(@ModelAttribute getUserOneInput input){
+        _userService.delete(input.getId());
+        return Result.ofSuccess("成功");
     }
 }

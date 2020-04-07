@@ -21,7 +21,7 @@ package com.example.demo.entity;
  */
 public class UserEntity {
     private Long id;
-    private  String UserName;
+    private  String userName;
     private String  passWord ;
     private String  user_sex;
     private  String nick_name;
@@ -31,7 +31,7 @@ public class UserEntity {
     }
 
     public String getUserName() {
-        return this.UserName;
+        return this.userName;
     }
 
     public String getPassWord() {
@@ -51,7 +51,7 @@ public class UserEntity {
     }
 
     public void setUserName(String UserName) {
-        this.UserName = UserName;
+        this.userName = UserName;
     }
 
     public void setPassWord(String passWord) {
