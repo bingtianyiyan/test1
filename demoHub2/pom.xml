@@ -52,12 +52,19 @@
             <artifactId>mybatis-plus</artifactId>
             <version>3.1.1</version>
         </dependency>
-    <!--    mysql-->
+
+        <!-- JPA-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!--    mysql-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
+        <!--    自动属性插件-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -82,7 +89,6 @@
             <artifactId>druid</artifactId>
             <version>1.0.29</version>
         </dependency>
-
 
     </dependencies>
 

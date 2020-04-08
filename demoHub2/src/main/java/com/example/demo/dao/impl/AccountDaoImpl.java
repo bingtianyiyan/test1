@@ -22,7 +22,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * 〈一句话功能简述 
- * 〈实现接口〉
+ * JdbcTemplate
  *
  * @author ydy
  * @create 2020/4/8 14:01
