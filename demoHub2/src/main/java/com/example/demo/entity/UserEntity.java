@@ -16,6 +16,9 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.io.Serializable;
+
+
 /**
  * 〈一句话功能简述 
  * 〈user表实体〉
@@ -25,7 +28,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * @since 1.0.0
  */
 @TableName(value = "users")//指定表名
-public class UserEntity {
+public class UserEntity implements Serializable {
     @TableId(value = "id",type = IdType.AUTO)
     private Long id;
     private  String userName;

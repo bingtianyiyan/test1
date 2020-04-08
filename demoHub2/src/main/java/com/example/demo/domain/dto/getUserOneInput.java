@@ -10,6 +10,8 @@
  */
 package com.example.demo.domain.dto;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * 〈一句话功能简述 
  * 〈查询单个用户输入模型〉
@@ -19,6 +21,7 @@ package com.example.demo.domain.dto;
  * @since 1.0.0
  */
 public class getUserOneInput {
+    @NotNull(message = "ID不能为空")
     private Long id ;
 
     public getUserOneInput() {
